@@ -10,6 +10,26 @@ const sequelize = new Sequelize(dbconfig.DATABASE, dbconfig.USER, dbconfig.PASSW
   dialectModule: require('mysql2')
 });
 
+const db={}
+db.Sequelize=Sequelize
+db.sequelize=sequelize
+db.Product=require('../models/productmodel.js')(sequelize,DataTypes)
+db.User=require('../models/usersmodel.js')(sequelize,DataTypes)
+db.Cart=require('../models/cartmodel.js')(sequelize,DataTypes)
+
+db.User.hasMany(db.Cart,{foreignKey:'userid'})
+db.Cart.belongsTo(db.User,{foreignKey:'userid'})
+
+db.Product.hasMany(db.Cart,{foreignKey:'productid'})
+db.Cart.belongsTo(db.Product,{foreignKey:'productid'})
+
+
+db.sequelize.sync({force:false})
+.then(()=>{
+  console.log('yes re-sync done')
+})
+
+
 sequelize.authenticate()
 .then(()=>{
   console.log('connected')
@@ -17,16 +37,9 @@ sequelize.authenticate()
 .catch(err=>{
   console.log('error',err);
 })
-const db={}
-db.Sequelize=Sequelize
-db.sequelize=sequelize
-db.products=require('../models/productmodel.js')(sequelize,DataTypes)
-db.users=require('../models/usersmodel.js')(sequelize,DataTypes)
 
-db.sequelize.sync({force:false})
-.then(()=>{
-  console.log('yes re-sync done')
-})
+
+
 
 
 module.exports=db

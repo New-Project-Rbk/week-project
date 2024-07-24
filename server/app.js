@@ -5,7 +5,7 @@ const app = express();
 
 //routers
 const routerproduct=require('./routes/productroute.js')
-// const routeruser=require('./routes/userrouter.js')
+const routeruser=require('./routes/userrouter.js')
 
 
 const port = 3000;
@@ -43,6 +43,7 @@ app.post("/uploadMultipleImages", (req, res) => {
 app.use('/api/products',routerproduct)
 
 // router of user
+app.use('/api/user',routeruser)
 
 // app.use('/api/user',routeruser)
 

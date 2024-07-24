@@ -22,7 +22,8 @@ const addProduct=async(req,res)=>{
 //getall product
 
 const getallproducts=async(req,res)=>{
-    let products =await Product.findAll({
+    const products =await Product.findAll({})
+    res.status(200).send(products)
 //i can get only the two attribute title and price 
         // attributes:[
         //     'title',
@@ -31,21 +32,14 @@ const getallproducts=async(req,res)=>{
 
         // or i keep it findAll ({})
 
-    })
-    
-   
-
-    res.status(200).send(products)
-
-
 }
 
 //get singleProduct
 
 const getOneProduct=async(req,res)=>{
     let id=req.params.id
-    let products=await Product.findOne({where:{id: id}})
-    res.status(200).send(products)
+    const p=await Product.findOne({where:{id: id}})
+    res.status(200).send(p)
 }
 
 
@@ -54,8 +48,8 @@ const getOneProduct=async(req,res)=>{
 const updateProduct=async(req,res)=>{
     let id=req.params.id
    
-    let products=await Product.update(req.body,{where:{id: id}})
-    res.status(200).send(products)
+    const pro=await Product.update(req.body,{where:{id: id}})
+    res.status(200).send(pro)
 }
 
 //delete Product
