@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import assets from "../assets/assets.gif";
+import assets from "../assets/assets2.gif";
 import axios from "axios";
 
 export default function UploadImage() {
@@ -120,6 +120,7 @@ export default function UploadImage() {
             Access you file at{" "}
             <a href={url} target="_blank" rel="noopener noreferrer">
               {url}
+              <img src={url} alt="" />
             </a>
           </div>
         )}

@@ -3,7 +3,7 @@ var cloudinary = require("cloudinary").v2;
 const cloud_name = "ds6qgagac"
 const api_key = "534188181747942"
 const api_secret = "7i2enwnHPNNtBP1W4Hu56GJ3QI8"
-// const secure_url = "CLOUDINARY_URL=cloudinary://534188181747942:7i2enwnHPNNtBP1W4Hu56GJ3QI8@ds6qgagac"
+
 
 cloudinary.config({
   cloud_name: cloud_name,
