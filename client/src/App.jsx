@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginFinal from './LoginFinal.jsx';
 import SignUp from "./SignUp.jsx";
+import LandingPage from "./components/LandingPage.jsx";
 
 
 
@@ -28,8 +29,8 @@ function App() {
         <BrowserRouter>
       <Routes>
         <Route path="/">
-          <Route index element={<LoginFinal />} />
-          {/* <Route path="Login" element={< LoginFinal/>} /> */}
+          <Route index element={<LandingPage />} />
+          <Route path="Login" element={< LoginFinal/>} />
           <Route path="SignUp" element={< SignUp/>} />
           
           
