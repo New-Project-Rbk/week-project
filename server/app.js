@@ -6,6 +6,7 @@ const app = express();
 //routers
 const routerproduct=require('./routes/productroute.js')
 const routeruser=require('./routes/userrouter.js')
+const routercart=require('./routes/cartroute.js')
 
 
 const port = 3000;
@@ -45,7 +46,9 @@ app.use('/api/products',routerproduct)
 // router of user
 app.use('/api/user',routeruser)
 
-// app.use('/api/user',routeruser)
+//router of cart
+
+app.use('/api/cart',routercart)
 
 
 app.listen(port, () => {
