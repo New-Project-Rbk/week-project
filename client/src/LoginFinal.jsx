@@ -24,7 +24,7 @@ const[password,setPassword]=useState("")
     // event.preventDefault();
     
 
-     axios.post("",{email,password})
+     axios.post("http://127.0.0.1:3000/api/user/logIn",{email,password})
       .then((res)=>{
         var token = res.data
         console.log(token);

@@ -52,16 +52,31 @@ const updateProduct=async(req,res)=>{
    
     const pro=await Product.update(req.body,{where:{productid: id}})
     res.status(200).send(pro)
-}
+};
+
+
 
 //delete Product
-const deleteProduct=async(req,res)=>{
-    let id=req.params.productid
-   
-    await Product.destroy({where:{productid: id}})
-    res.status(200).send('deleted')
-}
+const deleteProduct = async (req, res) => {
+    const productId = req.params.productid;
 
+    try {
+        console.log('Deleting product with ID:', productId);
+
+        const result = await Product.destroy({
+            where: { productid: productId }
+        });
+
+        if (result === 1) {
+            res.status(200).send('Product deleted successfully');
+        } else {
+            res.status(404).send('Product not found');
+        }
+    } catch (error) {
+        console.error('Error deleting product:', error);
+        res.status(500).send('Error deleting product');
+    }
+};
 module.exports={
     addProduct,
     getOneProduct,

@@ -38,16 +38,8 @@ const logIn=async(req,res)=>{
     const token=jwt.sign({userid:test.userid},'tethachhech')
     res.send(token)
     
-    
-    
-    
         }
        
-
-
-
-
-
     }
 
     catch (err){

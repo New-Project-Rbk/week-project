@@ -25,7 +25,7 @@ export default function SignUp() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     try {
-      await axios.post("",{firstName:data.get('firstName'),lastName:data.get('lastName'),email: data.get('email'),password: data.get('password')})
+      await axios.post("http://127.0.0.1:3000/api/user/signUp",{firstName:data.get('firstName'),lastName:data.get('lastName'),email: data.get('email'),password: data.get('password')})
       navigate('/')
     } catch (error) {
       console.log(error);

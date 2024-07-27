@@ -5,10 +5,10 @@ const router=require('express').Router()
 
 
 
-router.post('/addproduct',productcontroller.addProduct)
+router.post('/add',productcontroller.addProduct)
 router.get('/all',productcontroller.getallproducts)
-router.get('/:id',productcontroller.getOneProduct)
-router.delete('/:id',productcontroller.deleteProduct)
-router.put('/:id',productcontroller.updateProduct)
+router.get('/:productid',productcontroller.getOneProduct)
+router.delete('/:productid',productcontroller.deleteProduct)
+router.put('/:productid',productcontroller.updateProduct)
 
 module.exports=router
