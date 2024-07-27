@@ -1,7 +1,7 @@
 module.exports={
     HOST:'localhost',
     USER:'root',
-    PASSWORD:'Meddatabase123',
+    PASSWORD:'root',
     DATABASE:'week',
     DIALECT:'mysql'
 

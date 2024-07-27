@@ -77,7 +77,7 @@ export function NavbarDefault() {
   );
  
   return (
-    <Navbar className="mx-auto max-w-screen-xl px-4 py-2 lg:px-8 lg:py-4" style={{backgroundColor:"transparent"}}> 
+    <Navbar className="mx-auto max-w-screen-xl px-4 py-2 lg:px-8 lg:py-4" style={{backgroundColor:"black"}}> 
       
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
         <Typography
@@ -86,8 +86,10 @@ export function NavbarDefault() {
           className="mr-4 cursor-pointer py-1.5 font-medium"
         >
             <div> 
-      <input type="text" style={{backgroundColor:"white",color:"black",border: "2px solid black"}} placeholder="search..."/>
-      <button>Search</button>
+      <input type="text" style={{backgroundColor:"transparent",color:"wheat",border: "2px solid wheat"}} placeholder="search..."/>
+      <Button variant="text" size="sm" className="hidden lg:inline-block" >
+            <span style={{color:"grey"}}>Search</span>
+          </Button>
           </div>
         </Typography>
         <div className="hidden lg:block">{navList}</div>

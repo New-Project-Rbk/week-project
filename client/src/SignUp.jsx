@@ -26,7 +26,7 @@ export default function SignUp() {
     const data = new FormData(event.currentTarget);
     try {
       await axios.post("http://127.0.0.1:3000/api/user/signUp",{firstName:data.get('firstName'),lastName:data.get('lastName'),email: data.get('email'),password: data.get('password')})
-      navigate('/')
+      navigate('/Login')
     } catch (error) {
       console.log(error);
     }
@@ -40,7 +40,7 @@ export default function SignUp() {
   
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs" style={{backgroundColor:'white'}}>
         <CssBaseline />
         <Box
           sx={{
@@ -114,7 +114,7 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="" variant="body2" onClick={()=>{navigate('/')}} >
+                <Link href="" variant="body2" onClick={()=>{navigate('/Login')}} >
                   Already have an account? Sign in
                 </Link>
               </Grid>

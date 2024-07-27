@@ -29,7 +29,7 @@ const[password,setPassword]=useState("")
         var token = res.data
         console.log(token);
         localStorage.setItem("lolo",token)
-        navigate('Home')
+        .then(()=>navigate('/'))
       })
       .catch(err=>console.log(err))
     
@@ -37,10 +37,11 @@ const[password,setPassword]=useState("")
   
 
   return (
-    <main>
+    <main >
       
       <CssBaseline />
       <Sheet
+      
         sx={{
           width: 300,
           mx: 'auto', // margin left & right
@@ -64,6 +65,7 @@ const[password,setPassword]=useState("")
         <FormControl>
           <FormLabel>Email</FormLabel>
           <Input
+          
             // html input attribute
             name="email"
             type="email"
@@ -87,7 +89,7 @@ const[password,setPassword]=useState("")
         </FormControl>
         <Button sx={{ mt: 1 /* margin top */ }} onClick={()=>{handleSubmit()}}>Log in</Button>
         <Typography
-          endDecorator={<Link href=""   onClick={()=>{navigate('SignUp')}}>Sign up</Link>}
+          endDecorator={<Link href="SignUp"   onClick={()=>{navigate('/SignUp')}}>Sign up</Link>}
           fontSize="sm"
           sx={{ alignSelf: 'center' }}
         >
