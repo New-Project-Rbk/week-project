@@ -7,7 +7,7 @@ import FormLabel from '@mui/joy/FormLabel';
 import Input from '@mui/joy/Input';
 import Button from '@mui/joy/Button';
 import Link from '@mui/joy/Link';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from "axios"
 
@@ -20,18 +20,20 @@ const[email,setEmail]=useState("")
 const[password,setPassword]=useState("")
 
 
+
+
   const handleSubmit = () => {
     // event.preventDefault();
     
 
      axios.post("http://127.0.0.1:3000/api/user/logIn",{email,password})
-      .then((res)=>{
-        var token = res.data
-        console.log(token);
-        localStorage.setItem("lolo",token)
-        .then(()=>navigate('/'))
-      })
-      .catch(err=>console.log(err))
+     .then((res)=>{
+      var token = res.data
+      console.log(token);
+      localStorage.setItem("lolo",token)
+      navigate('/')
+    })
+    .catch(err=>alert(err))
     
     }
   

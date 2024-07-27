@@ -30,7 +30,7 @@ export function NavbarDefault() {
         color="blue-gray"
         className="flex items-center gap-x-2 p-1 font-medium"
       >
-        <svg
+        {localStorage.getItem('lolo')&&<div><svg
           width="16"
           height="17"
           viewBox="0 0 16 17"
@@ -46,7 +46,8 @@ export function NavbarDefault() {
         </svg>
         <a href="#" className="flex items-center">
           Profile
-        </a>
+        </a></div>}
+        
       </Typography>
       <Typography
         as="li"
@@ -54,7 +55,7 @@ export function NavbarDefault() {
         color="blue-gray"
         className="flex items-center gap-x-2 p-1 font-medium"
       >
-        <svg
+        {localStorage.getItem('lolo')&&<div> <svg
           width="14"
           height="15"
           viewBox="0 0 14 15"
@@ -68,7 +69,8 @@ export function NavbarDefault() {
         </svg>
         <a href="#" className="flex items-center">
           Cart
-        </a>
+        </a></div>}
+       
         
 
       </Typography>
@@ -94,9 +96,12 @@ export function NavbarDefault() {
         </Typography>
         <div className="hidden lg:block">{navList}</div>
         <div className="flex items-center gap-x-1">
-          <Button variant="text" size="sm" className="hidden lg:inline-block" onClick={()=>navigate('Login')}>
+          {!localStorage.getItem('lolo')&&<Button variant="text" size="sm" className="hidden lg:inline-block" onClick={()=>navigate('Login')}>
             <span style={{color:"grey"}}>Log In</span>
-          </Button>
+          </Button>}
+          {localStorage.getItem('lolo')&&<Button variant="text" size="sm" className="hidden lg:inline-block" onClick={()=>localStorage.clear()}>
+            <span style={{color:"grey"}}>Logout</span>
+          </Button>}
           <Button
             variant="gradient"
             size="sm"
@@ -152,9 +157,9 @@ export function NavbarDefault() {
             <Button fullWidth variant="text" size="sm" className="">
               <span>Log In</span>
             </Button>
-            <Button fullWidth variant="gradient" size="sm" className="" >
+            {/* <Button fullWidth variant="gradient" size="sm" className="" >
               <span>Sign in</span>
-            </Button>
+            </Button> */}
           </div>
         </div>
       </MobileNav>

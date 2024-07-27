@@ -30,8 +30,8 @@ function App() {
     <div>
         <BrowserRouter>
       <Routes>
-        <Route path="/">
-          <Route index element={<LandingPage />} />
+        <Route >
+          <Route path="/" index element={<LandingPage />} />
 
           <Route path="Login" element={< LoginFinal/>} />
 

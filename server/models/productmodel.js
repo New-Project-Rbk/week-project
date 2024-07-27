@@ -20,7 +20,7 @@ const Product = sequelize.define('Product', {
     type: DataTypes.TEXT
   },
   price: {
-    type: DataTypes.DECIMAL(10, 2),
+    type: DataTypes.DECIMAL(10,3),
     allowNull: false
   },
   imageUrl: {

@@ -1,56 +1,50 @@
 [
   {
-    "productid": 1,
+    
     "name": "Baume Et Mercier",
     "description": "Baume Et Mercier Men's Riviera Automatic Sapphire Black Dial Bracelet Watch",
     "price": "2675.00",
-    "imageUrl": "https://cdn11.bigcommerce.com/s-f06f69/images/stencil/500x659/products/13423/56517/10621-1__00296__64814.1624284562.jpg?c=2",
-    "createdAt": "2024-07-26T15:52:34.000Z",
-    "updatedAt": "2024-07-26T17:11:16.000Z"
+    "imageUrl": "https://cdn11.bigcommerce.com/s-f06f69/images/stencil/500x659/products/13423/56517/10621-1__00296__64814.1624284562.jpg?c=2"
+    
   },
   {
-    "productid": 3,
+    
     "name": "Rolex Yacht-Maste",
     "description": "Rolex Yacht-Master 18K White Gold Men's Watch 226659 - Automatic Chronometer. 18K White gold case ( 42 mm). Black dial with luminous hour markers and Black Oysterflex Bracelet",
     "price": "51500.00",
-    "imageUrl": "https://i.pinimg.com/736x/24/51/43/2451433cac7bed8a82d27ae789709046.jpg",
-    "createdAt": "2024-07-26T16:30:52.000Z",
-    "updatedAt": "2024-07-26T16:30:52.000Z"
+    "imageUrl": "https://i.pinimg.com/736x/24/51/43/2451433cac7bed8a82d27ae789709046.jpg"
+    
   },
   {
-    "productid": 4,
+    
     "name": "Audemars Piguet",
     "description": "Audemars Piguet 26421OR.OO.A002CA.01 Royal Oak Offshore Tourbillon Chronograph",
     "price": "627785.00",
-    "imageUrl": "https://luxurywatchesusa.com/wp-content/uploads/2019/08/audemars-piguet-26421OR.OO_.A002CA.01.png.webp",
-    "createdAt": "2024-07-26T16:35:05.000Z",
-    "updatedAt": "2024-07-26T16:35:05.000Z"
+    "imageUrl": "https://luxurywatchesusa.com/wp-content/uploads/2019/08/audemars-piguet-26421OR.OO_.A002CA.01.png.webp"
+    
   },
   {
-    "productid": 5,
+    
     "name": "Hublot Spirit",
     "description": "Hublot Spirit of Big Bang Gold Crystal 42 mm",
     "price": "21500.00",
-    "imageUrl": "https://www.uhrinstinkt.de/media/image/90/90/7d/PL124356.jpg",
-    "createdAt": "2024-07-26T16:43:34.000Z",
-    "updatedAt": "2024-07-26T16:43:34.000Z"
+    "imageUrl": "https://www.uhrinstinkt.de/media/image/90/90/7d/PL124356.jpg"
+    
   },
   {
-    "productid": 6,
+    
     "name": "Chopard Alpine ",
     "description": "Chopard Alpine Eagle 41mm Mens Watch",
     "price": "9815.00",
-    "imageUrl": "https://images-cdn.ubuy.co.in/647f25baedeb8801ac787839-chopard-alpine-eagle-41mm-mens-watch.jpg",
-    "createdAt": "2024-07-26T16:50:30.000Z",
-    "updatedAt": "2024-07-26T16:50:30.000Z"
+    "imageUrl": "https://images-cdn.ubuy.co.in/647f25baedeb8801ac787839-chopard-alpine-eagle-41mm-mens-watch.jpg"
+    
   },
   {
-    "productid": 7,
+    
     "name": "Bell & Ross",
     "description": "Bell & Ross BR 05 BLACK STEEL",
     "price": "3600.00",
-    "imageUrl": "https://cdn.thewatchpages.com/app/uploads/2019/09/13220839/bell-ross-br-05-grey-steel-br05a-gr-stsrb.jpg",
-    "createdAt": "2024-07-26T16:59:50.000Z",
-    "updatedAt": "2024-07-26T16:59:50.000Z"
+    "imageUrl": "https://cdn.thewatchpages.com/app/uploads/2019/09/13220839/bell-ross-br-05-grey-steel-br05a-gr-stsrb.jpg"
+   
   }
 ]
