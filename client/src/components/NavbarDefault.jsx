@@ -86,7 +86,7 @@ export function NavbarDefault() {
           className="mr-4 cursor-pointer py-1.5 font-medium"
         >
             <div> 
-      <input type="text" style={{backgroundColor:"white",color:"black",border: "2px solid black"}} placeholder="search..."/>
+      <input type="text" style={{backgroundColor:"transparent",color:"wheat",border: "2px solid wheat"}} placeholder="search..."/>
       <button>Search</button>
           </div>
         </Typography>

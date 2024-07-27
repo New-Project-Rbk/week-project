@@ -22,7 +22,7 @@ const LandingPage = () => {
         <div className="grid grid-cols-2 gap-6 mt-10 lg:mt-16 lg:gap-4 lg:grid-cols-4">
             <div className="relative group">
                 <div className="overflow-hidden aspect-w-1 aspect-h-1">
-                    <img style={{backgroundColor:'transparent'}} className="object-cover w-full h-full transition-all duration-300 group-hover:scale-125" src="https://cdn.rareblocks.xyz/collection/clarity-ecommerce/images/item-cards/4/product-1.png" alt="" />
+                    <img style={{backgroundColor:'transparent'}} className="object-cover w-full h-full transition-all duration-300 group-hover:scale-125" src="https://image.similarpng.com/very-thumbnail/2020/08/Man-elegant-watch-on-transparent-background-PNG.png" alt="" />
                 </div>
                 <div className="absolute left-3 top-3">
                     <p className="sm:px-3 sm:py-1.5 px-1.5 py-1 text-[8px] sm:text-xs font-bold tracking-wide text-gray-900 uppercase bg-white rounded-full">New</p>
