@@ -29,7 +29,7 @@ const[password,setPassword]=useState("")
         var token = res.data
         console.log(token);
         localStorage.setItem("lolo",token)
-        .then(()=>navigate('SignUp'))
+        .then(()=>navigate('/'))
       })
       .catch(err=>console.log(err))
     
