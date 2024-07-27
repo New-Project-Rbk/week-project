@@ -16,13 +16,13 @@ const LandingPage = () => {
     <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl" >
         <div className="max-w-md mx-auto text-center">
             <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl" style={{color:'wheat'}}>Our featured items</h2>
-            <p className="mt-4 text-base font-normal leading-7 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus faucibus massa dignissim tempus.</p>
+            <p style={{color:'wheat'}} className="mt-4 text-base font-normal leading-7 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus faucibus massa dignissim tempus.</p>
         </div>
 
         <div className="grid grid-cols-2 gap-6 mt-10 lg:mt-16 lg:gap-4 lg:grid-cols-4">
             <div className="relative group">
                 <div className="overflow-hidden aspect-w-1 aspect-h-1">
-                    <img style={{backgroundColor:'transparent'}} className="object-cover w-full h-full transition-all duration-300 group-hover:scale-125" src="https://image.similarpng.com/very-thumbnail/2020/08/Man-elegant-watch-on-transparent-background-PNG.png" alt="" />
+                    <img style={{backgroundColor:''}} className="object-cover w-full h-full transition-all duration-300 group-hover:scale-125" src="https://image.similarpng.com/very-thumbnail/2020/08/Man-elegant-watch-on-transparent-background-PNG.png" alt="" />
                 </div>
                 <div className="absolute left-3 top-3">
                     <p className="sm:px-3 sm:py-1.5 px-1.5 py-1 text-[8px] sm:text-xs font-bold tracking-wide text-gray-900 uppercase bg-white rounded-full">New</p>
