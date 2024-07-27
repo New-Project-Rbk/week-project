@@ -22,7 +22,7 @@ const Products = () => {
     };
 
     fetchData();
-  }, [!reload]);
+  }, [reload]);
 
 
   const handleAddproduct = () => {
@@ -78,18 +78,18 @@ setReload(!reload)
 
 
 
-  return (
-    <section className={classes.productPage}>
+  // return (
+  //   <section className={classes.productPage}>
       
 
-      <div className={classes.container}>
-        {/* {data.map(product => (
+  //     <div className={classes.container}>
+  //       {/* {data.map(product => (
           
-        ))} */}
-      </div>
-    </section>
+  //       ))} */}
+  //     </div>
+  //   </section>
   
-  );
+  // );
 };
 
 export default Products;
