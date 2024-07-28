@@ -113,6 +113,18 @@ const LandingPage = () => {
         }
         uploadMultipleImages(base64s);
       };
+      const addToCart =(addCart)=>{
+        axios.post('http://127.0.0.1:3000/api/cart/addCart',addCart)
+        .then(() => {
+            console.log('product added');
+            
+        }).catch((err) => {
+            console.log(err);
+            
+        });
+
+
+      }
 
 
      
@@ -172,12 +184,14 @@ const LandingPage = () => {
                  
                 </div>
             </div>
-            <Button style={{border: "2px solid wheat"}} fullWidth variant="gradient" size="sm" className="" >
+           {localStorage.getItem('lolo')&& <div>
+            <Button style={{border: "2px solid wheat"}} fullWidth variant="gradient" size="sm" className="" onClick={()=>addToCart({productid:e.productid,userid:y.userid})} >
               <span>Add To Cart</span>
             </Button>
             <Button style={{border: "2px solid wheat"}} fullWidth variant="gradient" size="sm" className="" onClick={()=>navigate('/Checkout',{state:{elem:e}})}>
               <span>Buy</span>
             </Button>
+            </div>}
            { y.email==='admin'&&<Button style={{border: "2px solid wheat" , backgroundColor:'red'}} fullWidth variant="gradient" size="sm" className=""
            onClick={()=>{deletor(e.productid)}}
            >

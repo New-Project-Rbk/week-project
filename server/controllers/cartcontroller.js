@@ -2,15 +2,47 @@ const db= require('../DataBase/DataBaseConnection')
 
 const Cart=db.Cart
 
+async function getCartProducts(req, res) {
+  try {
+    const userId = req.params.userid
+
+    if (!userId) {
+      return res.status(400).send({ error: 'User ID is required' });
+    }
+
+    const cartItems = await db.Cart.findAll({
+      where: {
+        userid: userId
+      },
+      include: [
+        {
+          model: db.Product,
+          attributes: ['name', 'price', 'description', 'imageUrl','productid']
+        },
+        {
+          model: db.User,
+          attributes: ['userid']
+        }
+      ]
+    });
+
+    
+
+    res.send(cartItems);
+  } catch (error) {
+    console.error('Error fetching cart products:', error);
+    res.status(500).send({ error: 'An error occurred while fetching cart products' });
+  }
+}
 
 
 
 const addCart=async(req,res)=>{
     let info={
 
-        cartid:req.body.cartid,
+        
         userid:req.body.userid,
-        idproduct:req.body.productid,
+        productid:req.body.productid,
 
         
     }
@@ -67,12 +99,12 @@ const getCartbyp = async (req, res) => {
 
   const deleteCart = async (req, res) => {
     try {
-      let userId = req.params.userid; 
+      let userId = req.params.cartid; 
   
      
       await Cart.destroy({
         where: {
-          userid: userId 
+          cartid: userId 
         }
       });
   
@@ -88,5 +120,5 @@ const getCartbyp = async (req, res) => {
 
 
   module.exports={
-    getCart,deleteCart,addCart,getCartbyp
+    getCart,deleteCart,addCart,getCartbyp,getCartProducts
   }
