@@ -10,6 +10,7 @@ import {
     Button,
     
   } from "@material-tailwind/react";
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -18,6 +19,7 @@ const LandingPage = () => {
     const [data, setData] = useState([]);
     const [show,setShow]=useState(false)
     const [input,setInput]=useState('')
+    const navigate = useNavigate()
 
      const fetchData=() => {
         axios.get('http://127.0.0.1:3000/api/products/all')
@@ -144,13 +146,7 @@ const LandingPage = () => {
 
   className="object-cover w-full h-full transition-all duration-300 group-hover:scale-125"  src={e.imageUrl} alt={e.name}  />
 
-{/* <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        sx={{ height: 140 }}
-        image={e.imageUrl}
-        title="green iguana"
-      />
-       </Card> */}
+
 
                 </div>
                 <div className="absolute left-3 top-3">
@@ -179,7 +175,7 @@ const LandingPage = () => {
             <Button style={{border: "2px solid wheat"}} fullWidth variant="gradient" size="sm" className="" >
               <span>Add To Cart</span>
             </Button>
-            <Button style={{border: "2px solid wheat"}} fullWidth variant="gradient" size="sm" className="" >
+            <Button style={{border: "2px solid wheat"}} fullWidth variant="gradient" size="sm" className="" onClick={()=>navigate('/Checkout',{state:{elem:e}})}>
               <span>Buy</span>
             </Button>
            { y.email==='admin'&&<Button style={{border: "2px solid wheat" , backgroundColor:'red'}} fullWidth variant="gradient" size="sm" className=""
@@ -210,17 +206,6 @@ const LandingPage = () => {
             )
         })}
         </div>
-
-           
-
-        
-
-
-
-
-
-
-
     </div>
 </section>
 </div>
