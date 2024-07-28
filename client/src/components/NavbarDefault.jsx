@@ -7,6 +7,7 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
  
 export function NavbarDefault({fetchData}) {
   // const [openNav, setOpenNav] = React.useState(false);
@@ -23,6 +24,13 @@ export function NavbarDefault({fetchData}) {
 localStorage.clear()
 // navigate('/')
 fetchData()
+  }
+  var x = ''
+  var y = {}
+  if (localStorage.getItem('lolo')) {
+    x=JSON.stringify(localStorage.getItem('lolo'))
+    y = jwtDecode(x)
+    
   }
   
 
@@ -108,6 +116,9 @@ fetchData()
           </Button>}
           {localStorage.getItem('lolo')&&<Button variant="text" size="sm" className="hidden lg:inline-block" onClick={logout}>
             <span style={{color:"grey"}}>Logout</span>
+          </Button>}
+          {y.email==="admin"&&<Button variant="text" size="sm" className="hidden lg:inline-block" onClick={()=>navigate('NewProduct')}>
+            <span style={{color:"grey"}}>Add Product</span>
           </Button>}
           {!localStorage.getItem('lolo')&&<Button
             variant="gradient"

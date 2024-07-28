@@ -5,10 +5,7 @@ import axios from 'axios';
 const Products = () => {
   const [data, setData] = useState([]);
   const [product, setProduct] = useState(null);
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
-  const [imageurl, setImageUrl] = useState("");
+
   const [reload,setReload]=useState(false)
 
   useEffect(() => {
@@ -25,19 +22,7 @@ const Products = () => {
   }, [reload]);
 
 
-  const handleAddproduct = () => {
-    
-    axios.post("http://localhost:3000/main/products/add", {name:name,description:description,price:price,imageurl:imageurl})
-      .then((response) => {
-        console.log(response);
-        setReload(!reload)
-
-
-      })
-      .catch((error) => {
-        console.error("Error adding product:", error);
-      });
-  };
+  
 
 
   const handleDeleteProduct = () => {

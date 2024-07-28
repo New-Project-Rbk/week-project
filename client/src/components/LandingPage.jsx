@@ -101,7 +101,7 @@ const LandingPage = () => {
                         </h3>
                         <div className="flex items-center mt-2.5 space-x-px">
                        
-                            <p style={{color:'wheat' ,height:300}}>Description⌚    {e.description}</p>
+                            <p style={{color:'wheat' ,height:250}}>Description⌚    {e.description}</p>
                         </div>
                     </div>
 
