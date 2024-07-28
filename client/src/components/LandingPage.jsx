@@ -57,11 +57,11 @@ const LandingPage = () => {
                 <div key={e.productid}>
             <div className="relative group">
                 <div className="overflow-hidden aspect-w-1 aspect-h-1">
-                    <img style={{ maxWidth: 345,height: 400 }}
+                    <img style={{ maxWidth: 345,height: 400 ,borderRadius:'20px' }}
 
                     
 
-  className="object-cover w-full h-full transition-all duration-300 group-hover:scale-125"  src={e.imageUrl} alt={e.name} />
+  className="object-cover w-full h-full transition-all duration-300 group-hover:scale-125"  src={e.imageUrl} alt={e.name}  />
 
 {/* <Card sx={{ maxWidth: 345 }}>
       <CardMedia
