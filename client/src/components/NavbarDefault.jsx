@@ -60,7 +60,7 @@ fetchData()
           />
         </svg>
         <a href="#" className="flex items-center">
-          Profile
+         Welcome {y.firstName}
         </a></div>}
         
       </Typography>

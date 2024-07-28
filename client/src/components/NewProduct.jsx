@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 
 function NewProduct() {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
     const [url, setUrl] = useState("");
+    const navigate = useNavigate()
     
 
   
@@ -72,7 +75,7 @@ function NewProduct() {
       const handleAddproduct = () => {
     
         axios.post("http://localhost:3000/api/products/add", {name,description,price,imageUrl:url})
-          .then((response) => {console.log(response,'data added');         
+          .then((response) => {navigate('/');         
     
     
           })
