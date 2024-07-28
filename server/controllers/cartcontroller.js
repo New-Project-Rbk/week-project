@@ -99,7 +99,7 @@ const getCartbyp = async (req, res) => {
 
   const deleteCart = async (req, res) => {
     try {
-      let userId = req.params.cartid; 
+      let userId = req.params.id; 
   
      
       await Cart.destroy({

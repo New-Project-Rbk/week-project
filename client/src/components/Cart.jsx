@@ -7,9 +7,11 @@ import {
     Button,
     
   } from "@material-tailwind/react";
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
     const [cart,setCart]=useState([])
+    const navigate = useNavigate()
     var x = ''
       var y = {}
       if (localStorage.getItem('lolo')) {
@@ -49,7 +51,16 @@ axios.get(`http://127.0.0.1:3000/api/cart/${y.userid}`)
 
 
     <div>
+         <button className="flex flex-row items-center text-gray-600 hover:text-gray-500 space-x-1" onClick={()=>navigate('/')}>
+                            <svg className="fill-stroke" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.91681 7H11.0835" stroke="currentColor" strokeWidth="0.666667" strokeLinecap="round" strokeLinejoin="round" />
+                                <path d="M2.91681 7L5.25014 9.33333" stroke="currentColor" strokeWidth="0.666667" strokeLinecap="round" strokeLinejoin="round" />
+                                <path d="M2.91681 7.00002L5.25014 4.66669" stroke="currentColor" strokeWidth="0.666667" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                            <p className="text-sm leading-none">Back</p>
+                        </button>
         <div className="grid grid-cols-2 gap-6 mt-10 lg:mt-16 lg:gap-4 lg:grid-cols-4">
+            
 {cart.map(e=>{
             return(
                 <div key={e.Product.productid}>
@@ -99,7 +110,9 @@ axios.get(`http://127.0.0.1:3000/api/cart/${y.userid}`)
             </div>
             )
         })}<br/>
-        <p><h1>Total is </h1></p>
+        <p><h1>Total is ${cart.reduce((sum, item) => {
+    return sum + parseFloat(item.Product.price);
+}, 0)} </h1></p>
         <p><button>Checkout</button></p>
         
         </div>
