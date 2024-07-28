@@ -17,6 +17,7 @@ import {
 const LandingPage = () => {      
     const [data, setData] = useState([]);
     const [show,setShow]=useState(false)
+    const [input,setInput]=useState('')
 
      const fetchData=() => {
         axios.get('http://127.0.0.1:3000/api/products/all')
@@ -46,6 +47,70 @@ const LandingPage = () => {
             
         });
       }
+      const updaterr=(id,joker)=>{
+        axios.put(`http://127.0.0.1:3000/api/products/${id}`,joker)
+        .then(() => {fetchData()
+            
+        }).catch((err) => {
+            console.log(err);
+        });
+      }
+      const convertBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+          const fileReader = new FileReader();
+          fileReader.readAsDataURL(file);
+    
+          fileReader.onload = () => {
+            resolve(fileReader.result);
+          };
+    
+          fileReader.onerror = (error) => {
+            reject(error);
+          };
+        });
+      };
+    
+      function uploadSingleImage(base64) {
+        
+        axios
+          .post("http://localhost:3000/uploadImage", { image: base64 })
+          .then((res) => {
+            setInput(res.data);
+            alert("Image uploaded Succesfully");
+          })
+          
+          .catch(console.log);
+      }
+    
+      function uploadMultipleImages(images) {
+       
+        axios
+          .post("http://localhost:3000/uploadMultipleImages", { images })
+          .then((res) => {
+            setInput(res.data);
+            alert("Image uploaded Succesfully");
+          })
+          
+          .catch(console.log);
+      }
+    
+      const uploadImage = async (event) => {
+        const files = event.target.files;
+        console.log(files.length);
+    
+        if (files.length === 1) {
+          const base64 = await convertBase64(files[0]);
+          uploadSingleImage(base64);
+          return;
+        }
+    
+        const base64s = [];
+        for (var i = 0; i < files.length; i++) {
+          var base = await convertBase64(files[i]);
+          base64s.push(base);
+        }
+        uploadMultipleImages(base64s);
+      };
 
 
      
@@ -128,14 +193,18 @@ const LandingPage = () => {
               <span>Update</span>
             </Button>}
             {show&&<div>
-                <p><input type="text" placeholder='name' />
-                <button>Edit</button></p>
-                <p><input type="text" placeholder='description' />
-                <button>Edit</button></p>
-                <p><input type="text" placeholder='price' />
-                <button>Edit</button></p>
-                <p><input type="text" placeholder='imageUrl' />
-                <button>Edit</button></p>
+                <p><input type="text" placeholder='name' onChange={(e)=>{setInput(e.target.value)}} />
+                <button onClick={()=>{updaterr(e.productid,{name:input})}}>Edit</button></p>
+
+                <p><input type="text" placeholder='description' onChange={(e)=>{setInput(e.target.value)}} />
+                <button onClick={()=>{updaterr(e.productid,{description:input})}}>Edit</button></p>
+
+
+                <p><input type="number" placeholder='price' onChange={(e)=>{setInput(e.target.value)}} />
+                <button onClick={()=>{updaterr(e.productid,{price:input})}}>Edit</button></p>
+
+                <p><input type="file" placeholder='imageUrl' onChange={uploadImage} />
+                <button onClick={()=>{updaterr(e.productid,{imageUrl:input})}} >Edit Image</button></p>
                 </div>}
             </div>
             )
