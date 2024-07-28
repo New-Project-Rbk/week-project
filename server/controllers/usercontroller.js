@@ -35,7 +35,7 @@ const logIn=async(req,res)=>{
         const testpassword=await bcrypt.compare(password,test.password)
         if(!testpassword) return res.send('not valide')
         else {
-    const token=jwt.sign({userid:test.userid},'tethachhech')
+    const token=jwt.sign({userid:test.userid,email:test.email},'tethachhech')
     res.send(token)
     
         }

@@ -1,5 +1,6 @@
 import React, { useState , useEffect } from 'react';
 import { NavbarDefault } from './NavbarDefault';
+import {jwtDecode} from 'jwt-decode'
 
 
 
@@ -12,20 +13,15 @@ import {
 
 
 
+
 const LandingPage = () => {      
     const [data, setData] = useState([]);
-    
-    
-    
+    const [show,setShow]=useState(false)
 
-    
-
-    
-
-
-    const fetchData=() => {
+     const fetchData=() => {
         axios.get('http://127.0.0.1:3000/api/products/all')
-        .then((response)=>setData(response.data))        
+        .then((response)=>setData(response.data))   
+
         .catch(error=>console.error('Error fetching data:', error.message))  
       };
 
@@ -34,20 +30,40 @@ const LandingPage = () => {
     
         fetchData();
       }, []);
-    
+      var x = ''
+      var y = {}
+      if (localStorage.getItem('lolo')) {
+        x=JSON.stringify(localStorage.getItem('lolo'))
+        y = jwtDecode(x)
+        
+      }
+      const deletor =(id)=>{
+        axios.delete(`http://127.0.0.1:3000/api/products/${id}`)
+        .then(() => {
+            fetchData()
+        }).catch((err) => {
+            console.log(err);
+            
+        });
+      }
 
+
+     
+    
+     
 
       
 
     return (
         <div>
-            < NavbarDefault/>
+            < NavbarDefault fetchData={fetchData}/>
         <section className="py-12 bg-white sm:py-16 lg:py-20"  style={{backgroundColor:'transparent'}}>
     <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl" >
         <div className="max-w-md mx-auto text-center">
             <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl" style={{color:'wheat'}}>Welcome To Wiiz Time Shop </h2>
 {       localStorage.getItem('lolo') &&     <p style={{color:'wheat'}} className="mt-4 text-base font-normal leading-7 text-gray-600">Please make yourself at Home ⌚⌚⌚⌚⌚</p>
 }            {!localStorage.getItem('lolo')&&<p style={{color:'wheat'}} className="mt-4 text-base font-normal leading-7 text-gray-600">Please Login or Sign-up ⌚⌚⌚⌚⌚</p>}
+{y.email==='admin'&& <p style={{color:'wheat'}} className="mt-4 text-base font-normal leading-7 text-gray-600">🚨🚨🚨🚨🚨   Admin Mode  🚨🚨🚨🚨🚨</p>}
         </div>
 
        
@@ -84,31 +100,7 @@ const LandingPage = () => {
                             </a>
                         </h3>
                         <div className="flex items-center mt-2.5 space-x-px">
-                            {/* <svg className="w-3 h-3 text-yellow-400 sm:w-4 sm:h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path
-                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                />
-                            </svg>
-                            <svg className="w-3 h-3 text-yellow-400 sm:w-4 sm:h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path
-                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                />
-                            </svg>
-                            <svg className="w-3 h-3 text-yellow-400 sm:w-4 sm:h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path
-                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                />
-                            </svg>
-                            <svg className="w-3 h-3 text-yellow-400 sm:w-4 sm:h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path
-                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                />
-                            </svg>
-                            <svg className="w-3 h-3 text-gray-300 sm:w-4 sm:h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path
-                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                />
-                            </svg> */}
+                       
                             <p style={{color:'wheat' ,height:300}}>Description⌚    {e.description}</p>
                         </div>
                     </div>
@@ -125,6 +117,26 @@ const LandingPage = () => {
             <Button style={{border: "2px solid wheat"}} fullWidth variant="gradient" size="sm" className="" >
               <span>Buy</span>
             </Button>
+           { y.email==='admin'&&<Button style={{border: "2px solid wheat" , backgroundColor:'red'}} fullWidth variant="gradient" size="sm" className=""
+           onClick={()=>{deletor(e.productid)}}
+           >
+              <span>Delete</span>
+            </Button>}
+            { y.email==='admin'&&<Button style={{border: "2px solid wheat" , backgroundColor:'blue'}} fullWidth variant="gradient" size="sm" className=""
+            onClick={()=>setShow(!show)}
+            >
+              <span>Update</span>
+            </Button>}
+            {show&&<div>
+                <p><input type="text" placeholder='name' />
+                <button>Edit</button></p>
+                <p><input type="text" placeholder='description' />
+                <button>Edit</button></p>
+                <p><input type="text" placeholder='price' />
+                <button>Edit</button></p>
+                <p><input type="text" placeholder='imageUrl' />
+                <button>Edit</button></p>
+                </div>}
             </div>
             )
         })}

@@ -10,6 +10,8 @@ import Link from '@mui/joy/Link';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from "axios"
+import { jwtDecode } from 'jwt-decode';
+
 
 
 
@@ -31,11 +33,15 @@ const[password,setPassword]=useState("")
       var token = res.data
       console.log(token);
       localStorage.setItem("lolo",token)
+      
       navigate('/')
     })
     .catch(err=>alert(err))
     
     }
+    
+    
+   
   
 
   return (
