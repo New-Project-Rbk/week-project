@@ -7,6 +7,7 @@ import LandingPage from "./components/LandingPage.jsx";
 import NewProduct from "./components/NewProduct.jsx";
 import Checkout from "./components/Checkout.jsx";
 import Cart from "./components/Cart.jsx";
+import Checkout2 from "./components/Checkout copy.jsx";
 
 
 
@@ -39,6 +40,7 @@ function App() {
           <Route path="NewProduct" element={< NewProduct/>} />
           <Route path="Checkout" element={< Checkout/>} />
           <Route path="Cart" element={< Cart/>} />
+          <Route path="Checkout2" element={<Checkout2 />} />
           
           
         </Route>

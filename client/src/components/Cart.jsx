@@ -42,6 +42,9 @@ axios.get(`http://127.0.0.1:3000/api/cart/${y.userid}`)
             
         });
       }
+      const total =cart.reduce((sum, item) => {
+        return sum + parseFloat(item.Product.price);
+    }, 0)
 
 
     
@@ -110,10 +113,8 @@ axios.get(`http://127.0.0.1:3000/api/cart/${y.userid}`)
             </div>
             )
         })}<br/>
-        <p><h1>Total is ${cart.reduce((sum, item) => {
-    return sum + parseFloat(item.Product.price);
-}, 0)} </h1></p>
-        <p><button>Checkout</button></p>
+        <p><h1>Total is ${total} </h1></p>
+        <p><button onClick={()=>navigate('/Checkout2',{state:{elem:total}})}>Checkout</button></p>
         
         </div>
     </div>
